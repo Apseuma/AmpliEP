@@ -1,0 +1,2 @@
+public class ImplementationC1 {
+}
