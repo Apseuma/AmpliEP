@@ -9,7 +9,7 @@ public class SimpleServiceLocator implements ServiceLocator {
     private Map<String,Object> services;
 
     public SimpleServiceLocator() {
-        services = new HashMap<String, Object>()
+        services = new HashMap<String, Object>();
     }
 
     void setService(String name, Factory factory) throws LocatorError{
