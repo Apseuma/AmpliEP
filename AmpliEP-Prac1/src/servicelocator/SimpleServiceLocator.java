@@ -8,14 +8,16 @@ import java.util.Map;
 
 public class SimpleServiceLocator implements ServiceLocator {
 
-    private Map<String,Object> services;
+    private Map<String,Object> constants;
+    private Map<String,Factory> services;
 
     public SimpleServiceLocator() {
-        services = new HashMap<String, Object>();
+        constants = new HashMap<String,Object>();
+        services = new HashMap<String, Factory>();
     }
 
     public void setService(String name, Factory factory) throws LocatorError {
-        if (services.containsKey(name)){
+        if (services.containsKey(name) || constants.containsKey(name)){
             throw new LocatorError("This name is already used, use another one.");
         } else{
             services.put(name, factory);
@@ -23,22 +25,21 @@ public class SimpleServiceLocator implements ServiceLocator {
     }
 
     public void setConstant(String name, Object value) throws LocatorError {
-        if (services.containsKey(name)){
+        if (services.containsKey(name) || constants.containsKey(name)){
             throw new LocatorError("This name is already used, use another one.");
         } else{
-            services.put(name, value);
+            constants.put(name, value);
         }
     }
 
     public Object getObject(String name) throws LocatorError {
-        if (services.containsKey(name)){
-            Object obj = services.get(name);
-            if(obj instanceof Factory){
-                return ((Factory) obj).create(this);    //Ja sabem que es tracta d'un objecte de tipus factory però ho hem de castejar per a tractar-ho com a tal
-            }else{
-                return obj;
-            }
-        } else{
+        if (constants.containsKey(name)) {
+            return constants.get(name);
+
+        }else if (services.containsKey(name)){
+            return services.get(name).create(this);
+
+        } else {
             throw new LocatorError("This name doesn't exist.");
         }
     }
