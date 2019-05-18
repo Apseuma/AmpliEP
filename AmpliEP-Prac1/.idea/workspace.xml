@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="477bbd39-e8ea-4df4-8da6-4a1d06323021" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/servicelocatorTest/CachedServiceLocatorTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/servicelocatorTest/ServiceLocatorTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AmpliEP-Prac1/servicelocatorTest/SimpleServiceLocatorTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AmpliEP-Prac1/servicelocatorTest/SimpleServiceLocatorTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servicelocatorTest/SimpleServiceLocatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servicelocatorTest/SimpleServiceLocatorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servicelocator/CachedServiceLocator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servicelocator/CachedServiceLocator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/servicelocatorTest/CachedServiceLocatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servicelocatorTest/CachedServiceLocatorTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,10 +25,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/servicelocator/SimpleServiceLocator.java">
+        <entry file="file://$PROJECT_DIR$/src/servicelocatorTest/ServiceLocatorTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+            <state relative-caret-position="374">
+              <caret line="22" column="19" lean-forward="true" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -40,66 +37,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/servicelocatorTest/SimpleServiceLocatorTest.java">
+        <entry file="file://$PROJECT_DIR$/src/servicelocator/SimpleServiceLocator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1258">
-              <caret line="74" lean-forward="true" selection-start-line="17" selection-start-column="4" selection-end-line="74" />
+            <state relative-caret-position="418">
+              <caret line="45" column="1" lean-forward="true" selection-start-line="9" selection-end-line="45" selection-end-column="1" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#425#426#0" expanded="true" />
-                <element signature="e#473#474#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/servicelocatorTest/ServiceLocatorTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="22" column="21" lean-forward="true" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/servicelocator/ServiceLocator.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="57" selection-start-line="5" selection-start-column="57" selection-end-line="5" selection-end-column="57" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/servicelocatorTest/CachedServiceLocatorTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/servicelocator/CachedServiceLocator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="26" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/servicelocator/FactoryC1.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+            <state relative-caret-position="204">
+              <caret line="12" column="38" selection-start-line="12" selection-start-column="38" selection-end-line="12" selection-end-column="38" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -173,10 +126,10 @@
         <option value="$PROJECT_DIR$/src/servicelocator/FactoryA1.java" />
         <option value="$PROJECT_DIR$/src/servicelocator/FactoryD1.java" />
         <option value="$PROJECT_DIR$/src/servicelocator/SimpleServiceLocator.java" />
-        <option value="$PROJECT_DIR$/src/servicelocator/CachedServiceLocator.java" />
-        <option value="$PROJECT_DIR$/src/servicelocatorTest/CachedServiceLocatorTest.java" />
         <option value="$PROJECT_DIR$/src/servicelocatorTest/SimpleServiceLocatorTest.java" />
         <option value="$PROJECT_DIR$/src/servicelocatorTest/ServiceLocatorTest.java" />
+        <option value="$PROJECT_DIR$/src/servicelocatorTest/CachedServiceLocatorTest.java" />
+        <option value="$PROJECT_DIR$/src/servicelocator/CachedServiceLocator.java" />
       </list>
     </option>
   </component>
@@ -319,7 +272,7 @@
       <option name="presentableId" value="Default" />
       <updated>1558167097314</updated>
       <workItem from="1558167101619" duration="9014000" />
-      <workItem from="1558176316377" duration="11525000" />
+      <workItem from="1558176316377" duration="13118000" />
     </task>
     <servers />
   </component>
@@ -356,7 +309,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20539000" />
+    <option name="totallyTimeSpent" value="22132000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -540,31 +493,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/servicelocator/CachedServiceLocator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="26" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/servicelocatorTest/CachedServiceLocatorTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/servicelocatorTest/SimpleServiceLocatorTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1258">
-          <caret line="74" lean-forward="true" selection-start-line="17" selection-start-column="4" selection-end-line="74" />
+        <state relative-caret-position="408">
+          <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#425#426#0" expanded="true" />
-            <element signature="e#473#474#0" expanded="true" />
+            <element signature="e#331#332#0" expanded="true" />
+            <element signature="e#378#379#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -576,12 +511,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/servicelocator/SimpleServiceLocator.java">
+    <entry file="file://$PROJECT_DIR$/src/servicelocatorTest/SimpleServiceLocatorTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+        <state relative-caret-position="697">
+          <caret line="101" lean-forward="true" selection-start-line="101" selection-end-line="101" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#425#426#0" expanded="true" />
+            <element signature="e#473#474#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -589,7 +526,27 @@
     <entry file="file://$PROJECT_DIR$/src/servicelocatorTest/ServiceLocatorTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
-          <caret line="22" column="21" lean-forward="true" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
+          <caret line="22" column="19" lean-forward="true" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/servicelocator/SimpleServiceLocator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="45" column="1" lean-forward="true" selection-start-line="9" selection-end-line="45" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/servicelocator/CachedServiceLocator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="38" selection-start-line="12" selection-start-column="38" selection-end-line="12" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
