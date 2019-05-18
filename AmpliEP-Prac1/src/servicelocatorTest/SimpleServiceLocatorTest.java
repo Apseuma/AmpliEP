@@ -12,7 +12,7 @@ import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class SimpleServiceLocatorTest {
+class SimpleServiceLocatorTest extends ServiceLocatorTest{
     private SimpleServiceLocator ssl;
 
     @BeforeEach
@@ -112,13 +112,13 @@ class SimpleServiceLocatorTest {
         });
 
 
-        //FALTA LO QUE HI HA APUNTAT DE VIASERVCEICE I TAL
-
     }
 
 
     @Test
-    void getObjectInterfConstantTest() throws LocatorError {
+    void getObjectServiceConstantTest() throws LocatorError {
+
+        ssl.setConstant("D", 34);
 
         ssl.setService("servei", new FactoryD1());
         InterfaceD interfD1 = (InterfaceD) ssl.getObject("servei");
