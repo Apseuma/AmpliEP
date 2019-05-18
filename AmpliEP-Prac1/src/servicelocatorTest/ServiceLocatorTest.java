@@ -70,5 +70,5 @@ class ServiceLocatorTest {
             ssl.setConstant("B", 89);
         });
 
-
     }
+}
