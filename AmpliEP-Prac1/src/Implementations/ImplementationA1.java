@@ -1,5 +1,9 @@
 package Implementations;
 
+import Interfaces.InterfaceA;
+import Interfaces.InterfaceB;
+import Interfaces.InterfaceC;
+
 public class ImplementationA1 implements InterfaceA {
     private InterfaceB b;
     private InterfaceC c;

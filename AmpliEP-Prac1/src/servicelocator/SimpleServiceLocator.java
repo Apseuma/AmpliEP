@@ -1,5 +1,7 @@
 package servicelocator;
 
+import Exceptions.LocatorErrorException;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -12,9 +14,9 @@ public class SimpleServiceLocator implements ServiceLocator {
         services = new HashMap<String, Object>();
     }
 
-    void setService(String name, Factory factory) throws LocatorError{
+    void setService(String name, Factory factory) throws LocatorErrorException {
         if (services.containsKey(name)){
-            throw LocatorError; //??
+            throw LocatorErrorException; //??
         } else{
             services.put(name, factory);
             //algo mes?
@@ -22,11 +24,11 @@ public class SimpleServiceLocator implements ServiceLocator {
 
     }
 
-    void setConstant(String name, Object value) throws LocatorError{
+    void setConstant(String name, Object value) throws LocatorErrorException{
 
     }
 
-    Object getObject(String name) throws LocatorError{
+    Object getObject(String name) throws LocatorErrorException{
 
 
     }
