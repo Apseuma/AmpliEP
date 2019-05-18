@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="08923875-acff-46cf-9472-dd7afe02370d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/servicelocator/SimpleServiceLocator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servicelocator/SimpleServiceLocator.java" afterDir="false" />
-    </list>
+    <list default="true" id="08923875-acff-46cf-9472-dd7afe02370d" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,8 +17,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/servicelocator/ServiceLocator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="9" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="9" />
+            <state relative-caret-position="136">
+              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
             </state>
           </provider>
         </entry>
@@ -117,6 +115,17 @@
               <item name="AmpliEP-Prac1" type="b2602c69:ProjectViewProjectNode" />
               <item name="AmpliEP-Prac1" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="AmpliEP-Prac1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AmpliEP-Prac1" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AmpliEP-Prac1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AmpliEP-Prac1" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="servicelocator" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -161,15 +170,16 @@
       <option name="presentableId" value="Default" />
       <updated>1558110506195</updated>
       <workItem from="1558110514533" duration="2791000" />
-      <workItem from="1558114498176" duration="6719000" />
+      <workItem from="1558114498176" duration="6985000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9510000" />
+    <option name="totallyTimeSpent" value="9776000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19818456" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -370,8 +380,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/servicelocator/ServiceLocator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="9" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="9" />
+        <state relative-caret-position="136">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
     </entry>
