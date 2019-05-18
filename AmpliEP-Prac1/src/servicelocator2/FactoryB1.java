@@ -7,7 +7,7 @@ import Interfaces.InterfaceD;
 
 public class FactoryB1 implements Factory<InterfaceB>{
     public InterfaceB create (ServiceLocator sl) throws LocatorError {
-        InterfaceD d = (InterfaceD)	sl.getObject(InterfaceD.class);
+        InterfaceD d = sl.getObject(InterfaceD.class);
         return new ImplementationB1(d);
     }
 }
