@@ -1,7 +1,7 @@
 package servicelocator;
 
-import Exceptions.LocatorErrorException;
+import Exceptions.LocatorError;
 
 public interface Factory {
-    Object create (ServiceLocator sl) throws LocatorErrorException;
+    Object create (ServiceLocator sl) throws LocatorError;
 }

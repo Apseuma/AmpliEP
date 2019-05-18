@@ -1,6 +1,6 @@
 package servicelocator;
 
-import Exceptions.LocatorErrorException;
+import Exceptions.LocatorError;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -14,23 +14,23 @@ public class SimpleServiceLocator implements ServiceLocator {
         services = new HashMap<String, Object>();
     }
 
-    public void setService(String name, Factory factory) throws LocatorErrorException {
+    public void setService(String name, Factory factory) throws LocatorError {
         if (services.containsKey(name)){
-            throw new LocatorErrorException("This name is already used, use another one.");
+            throw new LocatorError("This name is already used, use another one.");
         } else{
             services.put(name, factory);
         }
     }
 
-    public void setConstant(String name, Object value) throws LocatorErrorException{
+    public void setConstant(String name, Object value) throws LocatorError {
         if (services.containsKey(name)){
-            throw new LocatorErrorException("This name is already used, use another one.");
+            throw new LocatorError("This name is already used, use another one.");
         } else{
             services.put(name, value);
         }
     }
 
-    public Object getObject(String name) throws LocatorErrorException{
+    public Object getObject(String name) throws LocatorError {
         if (services.containsKey(name)){
             Object obj = services.get(name);
             if(obj instanceof Factory){
@@ -39,7 +39,7 @@ public class SimpleServiceLocator implements ServiceLocator {
                 return obj;
             }
         } else{
-            throw new LocatorErrorException("This name doesn't exist.");
+            throw new LocatorError("This name doesn't exist.");
         }
     }
 }
