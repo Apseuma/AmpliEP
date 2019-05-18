@@ -15,6 +15,7 @@ public class CachedServiceLocator implements ServiceLocator {
     public CachedServiceLocator() {
         constants = new HashMap<String,Object>();
         services = new HashMap<String, Factory>();
+        created = new HashMap<String,Object>();
     }
 
     public void setService(String name, Factory factory) throws LocatorError {
@@ -34,13 +35,18 @@ public class CachedServiceLocator implements ServiceLocator {
     }
 
     public Object getObject(String name) throws LocatorError {
-        if (constants.containsKey(name)) {
+        if (created.containsKey(name)){
+            return created.get(name);
+        }
+         else if (constants.containsKey(name)) {
             return constants.get(name);
-
-        }else if (services.containsKey(name)){
-            return services.get(name).create(this);
-
-        } else {
+        }
+         else if (services.containsKey(name)){
+            Object serv = services.get(name).create(this);
+            created.put(name,serv);
+            return serv;
+        }
+         else {
             throw new LocatorError("This name doesn't exist.");
         }
     }
