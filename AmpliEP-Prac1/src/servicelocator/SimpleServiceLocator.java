@@ -14,26 +14,34 @@ public class SimpleServiceLocator implements ServiceLocator {
         services = new HashMap<String, Object>();
     }
 
-    void setService(String name, Factory factory) throws LocatorErrorException {
+    public void setService(String name, Factory factory) throws LocatorErrorException {
         if (services.containsKey(name)){
-            throw LocatorErrorException; //??
+            throw new LocatorErrorException("This name is already used, use another one.");
         } else{
             services.put(name, factory);
-            //algo mes?
         }
-
     }
 
-    void setConstant(String name, Object value) throws LocatorErrorException{
-
+    public void setConstant(String name, Object value) throws LocatorErrorException{
+        if (services.containsKey(name)){
+            throw new LocatorErrorException("This name is already used, use another one.");
+        } else{
+            services.put(name, value);
+        }
     }
 
-    Object getObject(String name) throws LocatorErrorException{
-
-
+    public Object getObject(String name) throws LocatorErrorException{
+        if (services.containsKey(name)){
+            Object obj = services.get(name);
+            if(obj instanceof Factory){
+                return ((Factory) obj).create(this);    //Ja sabem que es tracta d'un objecte de tipus factory però ho hem de castejar per a tractar-ho com a tal
+            }else{
+                return obj;
+            }
+        } else{
+            throw new LocatorErrorException("This name doesn't exist.");
+        }
     }
-
-
 }
 
 //segur que aquesta classe va en aquest lloc del codi??? nose
