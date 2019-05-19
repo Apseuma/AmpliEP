@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="477bbd39-e8ea-4df4-8da6-4a1d06323021" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/servicelocator2/SimpleServiceLocator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servicelocator/FactoryC1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servicelocator/FactoryC1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servicelocator/FactoryD1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servicelocator/FactoryD1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servicelocator2/FactoryC1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servicelocator2/FactoryC1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servicelocator2/FactoryD1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servicelocator2/FactoryD1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servicelocatorTest/CachedServiceLocatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servicelocatorTest/CachedServiceLocatorTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servicelocatorTest/ServiceLocatorTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/servicelocatorTest/SimpleServiceLocatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/servicelocatorTest/SimpleServiceLocatorTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="477bbd39-e8ea-4df4-8da6-4a1d06323021" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,9 +24,10 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/servicelocatorTest/CachedServiceLocatorTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-68">
-              <caret line="14" column="18" lean-forward="true" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+            <state relative-caret-position="153">
+              <caret line="15" column="41" lean-forward="true" selection-start-line="15" selection-start-column="41" selection-end-line="15" selection-end-column="41" />
               <folding>
+                <element signature="e#348#349#0" expanded="true" />
                 <element signature="e#396#397#0" expanded="true" />
               </folding>
             </state>
@@ -140,7 +131,7 @@
               <item name="AmpliEP-Prac1" type="b2602c69:ProjectViewProjectNode" />
               <item name="AmpliEP-Prac1" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="servicelocator" type="462c0819:PsiDirectoryNode" />
+              <item name="servicelocator2" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="AmpliEP-Prac1" type="b2602c69:ProjectViewProjectNode" />
@@ -265,14 +256,11 @@
       <option name="presentableId" value="Default" />
       <updated>1558167097314</updated>
       <workItem from="1558167101619" duration="9014000" />
-      <workItem from="1558176316377" duration="22772000" />
+      <workItem from="1558176316377" duration="24430000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="servicelocatorTest_in_AmpliEP-Prac1 - 2019.05.18 at 19h 36m 03s.xml">
-      <configuration name="servicelocatorTest in AmpliEP-Prac1" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="servicelocatorTest_in_AmpliEP-Prac1 - 2019.05.18 at 19h 36m 46s.xml">
       <configuration name="servicelocatorTest in AmpliEP-Prac1" configurationId="JUnit" />
     </history-entry>
@@ -300,15 +288,18 @@
     <history-entry file="servicelocatorTest_in_AmpliEP-Prac1 - 2019.05.18 at 20h 21m 29s.xml">
       <configuration name="servicelocatorTest in AmpliEP-Prac1" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="servicelocatorTest_in_AmpliEP-Prac1 - 2019.05.18 at 20h 32m 00s.xml">
+      <configuration name="servicelocatorTest in AmpliEP-Prac1" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31786000" />
+    <option name="totallyTimeSpent" value="33444000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25340393" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25340393" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -602,9 +593,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/servicelocatorTest/CachedServiceLocatorTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-68">
-          <caret line="14" column="18" lean-forward="true" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+        <state relative-caret-position="153">
+          <caret line="15" column="41" lean-forward="true" selection-start-line="15" selection-start-column="41" selection-end-line="15" selection-end-column="41" />
           <folding>
+            <element signature="e#348#349#0" expanded="true" />
             <element signature="e#396#397#0" expanded="true" />
           </folding>
         </state>
