@@ -8,6 +8,7 @@ import servicelocator.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@SuppressWarnings("ALL")
 class CachedServiceLocatorTest{
     private CachedServiceLocator csl;
 
@@ -75,59 +76,85 @@ class CachedServiceLocatorTest{
         csl.setService("serv1", new FactoryC1());
         InterfaceC interfC1 = (InterfaceC) csl.getObject("serv1");
         InterfaceC interfC2 = (InterfaceC) csl.getObject("serv1");
-        assertSame(interfC1, interfC2);     //UNICA LÍNEA QUE CANVIA!!!
+        assertSame(interfC1, interfC2);
+    }
+
+
+
+    @Test
+    void getObjectInterfaceDTest() throws LocatorError{
+        csl.setService("interfD",new FactoryD1());
+
+        assertThrows(LocatorError.class, () -> {
+            csl.getObject("interfD"); //pq necessita un "constD"->*int*
+        });
+
+        csl.setConstant("constD",155);
+        csl.getObject("interfD"); //OK: perquè ja té un "constD"->*int*
+
     }
 
 
     @Test
-    void getObjectComplexTest() throws LocatorError {
-
-        csl.setConstant("constD", 34);
-        csl.setConstant("constC", "valor de InterfaceC");
-        csl.setService("B", new FactoryB1());
-        csl.setService("A", new FactoryA1());
-
-        assertSame(34, csl.getObject("constD")); //OK, pq es un int
-        assertSame("valor de InterfaceC", csl.getObject("constC")); //OK, pq es una string
+    void getObjectInterfaceCTest() throws LocatorError{
+        csl.setService("interfC",new FactoryC1());
 
         assertThrows(LocatorError.class, () -> {
-            csl.getObject("B"); //pq necessita un "D"->InterfaceD
+            csl.getObject("interfC"); //pq necessita un "constC"->*string*
         });
 
-        assertThrows(LocatorError.class, () -> {
-            csl.getObject("A"); //pq necessita un "B"->InterfaceB
-        });
+        csl.setConstant("constC","hello!!");
+        csl.getObject("interfC"); //OK: perquè ja té un "constC"->*string*
+
     }
 
 
     @Test
-    void getObjectComplexTest2() throws LocatorError {
-        csl.setConstant("constD", 34);
-        csl.setConstant("constC", "valor de InterfaceC");
+    void getObjectInterfaceBTest() throws LocatorError{
+        csl.setService("interfB",new FactoryB1());
 
-        csl.setService("factD",new FactoryD1());
-        Object interfD = csl.getObject("factD");
+        assertThrows(LocatorError.class, () -> {
+            csl.getObject("interfB"); //pq necessita un "D"->*interfaceD*
+        });
+
+        csl.setConstant("constD",10 );
+        csl.setService("interfD",new FactoryD1());
+        Object interfD = csl.getObject("interfD");
+
+        csl.setConstant("D",interfD); //ara ja té un "D"->*interfaceD*
+
+        csl.getObject("interfB"); //OK
+
+    }
+
+
+    @Test
+    void getObjectInterfaceATest() throws LocatorError{
+        csl.setService("interfA",new FactoryA1());
+
+        assertThrows(LocatorError.class, () -> {
+            csl.getObject("interfA"); //pq necessita un "B"->*interfaceB*
+            //                               i un "C"->*interfaceC*
+        });
+
+        csl.setConstant("constD",10 );
+        csl.setService("interfD",new FactoryD1());
+        Object interfD = csl.getObject("interfD");
         csl.setConstant("D",interfD);
 
-        csl.setService("factC",new FactoryC1());
-        Object interfC = csl.getObject("factC");
-        csl.setConstant("C",interfC);
+        csl.setService("interfB",new FactoryB1());
+        Object interfB = csl.getObject("interfB");
+        csl.setConstant("B",interfB); //ara ja té un "B"->*interfaceB*
 
-        csl.setService("factB",new FactoryB1());
-        Object interfB = csl.getObject("factB");
-        csl.setConstant("B",interfB);
 
-        csl.setService("factA",new FactoryA1());
+        csl.setConstant("constC","heyy" );
+        csl.setService("interfC",new FactoryC1());
+        Object interfC = csl.getObject("interfC");
+        csl.setConstant("C",interfC); //ara ja té un "C"->*interfaceC*
 
-        /*ara, tenim:
-            SIMPLE SERVICE LOCATOR:
-            "factA"->FactoryA1();
-            "factB"->FactoryB1();
-            "factC"->FactoryC1();
-            "factD"->FactoryD1();
 
-            és a dir, disposem dels 4 tipus d'Interfícies si fem un getObject.
-         */
+        csl.getObject("interfA"); // OK
+
     }
 
 }

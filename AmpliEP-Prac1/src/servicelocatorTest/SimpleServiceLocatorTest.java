@@ -54,14 +54,11 @@ class SimpleServiceLocatorTest{
         });
     }
 
-
-
     @Test
     void getInexistentObject() throws LocatorError {
         assertThrows(LocatorError.class, () -> {
             ssl.getObject("inventat");
         });
-
     }
 
     @Test
@@ -79,55 +76,79 @@ class SimpleServiceLocatorTest{
     }
 
 
+
     @Test
-    void getObjectComplexTest() throws LocatorError {
-
-        ssl.setConstant("constD", 34);
-        ssl.setConstant("constC", "valor de InterfaceC");
-        ssl.setService("B", new FactoryB1());
-        ssl.setService("A", new FactoryA1());
-
-        assertSame(34, ssl.getObject("constD")); //OK, pq es un int
-        assertSame("valor de InterfaceC", ssl.getObject("constC")); //OK, pq es una string
+    void getObjectInterfaceDTest() throws LocatorError{
+        ssl.setService("interfD",new FactoryD1());
 
         assertThrows(LocatorError.class, () -> {
-            ssl.getObject("B"); //pq necessita un "D"->InterfaceD
+            ssl.getObject("interfD"); //pq necessita un "constD"->*int*
         });
 
-        assertThrows(LocatorError.class, () -> {
-            ssl.getObject("A"); //pq necessita un "B"->InterfaceB
-        });
+        ssl.setConstant("constD",155);
+        ssl.getObject("interfD"); //OK: perquè ja té un "constD"->*int*
+
     }
 
 
     @Test
-    void getObjectComplexTest2() throws LocatorError {
-        ssl.setConstant("constD", 34);
-        ssl.setConstant("constC", "valor de InterfaceC");
+    void getObjectInterfaceCTest() throws LocatorError{
+        ssl.setService("interfC",new FactoryC1());
 
-        ssl.setService("factD",new FactoryD1());
-        Object interfD = ssl.getObject("factD");
+        assertThrows(LocatorError.class, () -> {
+            ssl.getObject("interfC"); //pq necessita un "constC"->*string*
+        });
+
+        ssl.setConstant("constC","hello!!");
+        ssl.getObject("interfC"); //OK: perquè ja té un "constC"->*string*
+
+    }
+
+    @Test
+    void getObjectInterfaceBTest() throws LocatorError{
+        ssl.setService("interfB",new FactoryB1());
+
+        assertThrows(LocatorError.class, () -> {
+            ssl.getObject("interfB"); //pq necessita un "D"->*interfaceD*
+        });
+
+        ssl.setConstant("constD",10 );
+        ssl.setService("interfD",new FactoryD1());
+        Object interfD = ssl.getObject("interfD");
+
+        ssl.setConstant("D",interfD); //ara ja té un "D"->*interfaceD*
+
+        ssl.getObject("interfB"); //OK
+
+    }
+
+    @Test
+    void getObjectInterfaceATest() throws LocatorError{
+        ssl.setService("interfA",new FactoryA1());
+
+        assertThrows(LocatorError.class, () -> {
+            ssl.getObject("interfA"); //pq necessita un "B"->*interfaceB*
+                                            //           i un "C"->*interfaceC*
+        });
+
+        ssl.setConstant("constD",10 );
+        ssl.setService("interfD",new FactoryD1());
+        Object interfD = ssl.getObject("interfD");
         ssl.setConstant("D",interfD);
 
-        ssl.setService("factC",new FactoryC1());
-        Object interfC = ssl.getObject("factC");
-        ssl.setConstant("C",interfC);
+        ssl.setService("interfB",new FactoryB1());
+        Object interfB = ssl.getObject("interfB");
+        ssl.setConstant("B",interfB); //ara ja té un "B"->*interfaceB*
 
-        ssl.setService("factB",new FactoryB1());
-        Object interfB = ssl.getObject("factB");
-        ssl.setConstant("B",interfB);
 
-        ssl.setService("factA",new FactoryA1());
+        ssl.setConstant("constC","heyy" );
+        ssl.setService("interfC",new FactoryC1());
+        Object interfC = ssl.getObject("interfC");
+        ssl.setConstant("C",interfC); //ara ja té un "C"->*interfaceC*
 
-        /*ara, tenim:
-            SIMPLE SERVICE LOCATOR:
-            "factA"->FactoryA1();
-            "factB"->FactoryB1();
-            "factC"->FactoryC1();
-            "factD"->FactoryD1();
 
-            és a dir, disposem dels 4 tipus d'Interfícies si fem un getObject.
-         */
+        ssl.getObject("interfA"); // OK
+
     }
 
 }
