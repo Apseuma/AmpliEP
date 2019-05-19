@@ -86,7 +86,7 @@ class SimpleServiceLocatorTest{
     }
 
 
-    @Test
+    /*@Test
     void getObjectComplexTest() throws LocatorError {
 
         ssl.setConstant(, 34);
