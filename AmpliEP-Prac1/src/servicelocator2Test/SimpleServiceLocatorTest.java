@@ -2,6 +2,7 @@ package servicelocator2Test;
 
 import Exceptions.LocatorError;
 import Interfaces.InterfaceC;
+import Interfaces.InterfaceD;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import servicelocator2.*;
@@ -30,55 +31,57 @@ class SimpleServiceLocatorTest{
         ssl.setService(factD.getClass(), factD);
     }
 
-/*
+
     @Test
     void setConstantTest() throws LocatorError {
-        ssl.setConstant("constant1", 34);
-        ssl.setConstant("constant2", "hello");
+        String str = "holaaa";
+        int integ = 55;
+        int integ2 = 1899;
+        Factory factC = new FactoryC1();
+
+
+        ssl.setConstant(String.class, str);
+        ssl.setConstant(Integer.class, integ);
 
         assertThrows(LocatorError.class, () -> {
-            ssl.setConstant("constant1", "hey, I'm a constant");
+            ssl.setConstant(Integer.class, integ2);
         });
 
-        ssl.setConstant("constant3", 34);
+        //ssl.setConstant(factC.getClass(),factC); pq no??
 
-        ssl.setConstant("factory", new FactoryB1());   //ok
     }
-
-    @Test
-    void setExistentServiceAndConstantTest() throws LocatorError {
-        ssl.setConstant("A", 34);
-        assertThrows(LocatorError.class, () -> {
-            ssl.setService("A", new FactoryD1());
-        });
-
-        ssl.setService("B", new FactoryC1());
-        assertThrows(LocatorError.class, () -> {
-            ssl.setConstant("B", 89);
-        });
-    }
-
 
 
     @Test
     void getInexistentObject() throws LocatorError {
         assertThrows(LocatorError.class, () -> {
-            ssl.getObject("inventat");
+            ssl.getObject(String.class);
+        });
+
+        Factory factA = new FactoryA1();
+        assertThrows(LocatorError.class, () -> {
+            ssl.getObject(factA.getClass());
         });
 
     }
 
     @Test
     void getSameOrNotObject() throws LocatorError {
-        ssl.setConstant("constC", "string");
+        double real = 3.456;
 
-        Object const1 = ssl.getObject("constC");
-        Object const2 = ssl.getObject("constC");
+        ssl.setConstant(Double.class, real);
+
+        Object const1 = ssl.getObject(Double.class);
+        Object const2 = ssl.getObject(Double.class);
         assertSame(const1, const2);
 
-        ssl.setService("serv1", new FactoryC1());
-        InterfaceC interfC1 = (InterfaceC) ssl.getObject("serv1");
-        InterfaceC interfC2 = (InterfaceC) ssl.getObject("serv1");
+
+        Factory factC = new FactoryC1();
+
+        ssl.setConstant(String.class,"La factoria C em necessita!");
+        ssl.setService(factC.getClass(), factC);
+        InterfaceC interfC1 = (InterfaceC) ssl.getObject(factC.getClass());
+        InterfaceC interfC2 = (InterfaceC) ssl.getObject(FactoryC1.class);  //es la mateixa class
         assertNotSame(interfC1, interfC2);
     }
 
@@ -86,7 +89,7 @@ class SimpleServiceLocatorTest{
     @Test
     void getObjectComplexTest() throws LocatorError {
 
-        ssl.setConstant("constD", 34);
+        ssl.setConstant(, 34);
         ssl.setConstant("constC", "valor de InterfaceC");
         ssl.setService("B", new FactoryB1());
         ssl.setService("A", new FactoryA1());
@@ -106,13 +109,15 @@ class SimpleServiceLocatorTest{
 
     @Test
     void getObjectComplexTest2() throws LocatorError {
-        ssl.setConstant("constD", 34);
-        ssl.setConstant("constC", "valor de InterfaceC");
+        ssl.setConstant(Integer.class, 44);
+        ssl.setConstant(String.class, "necessari per fer InterfaceC");
 
-        ssl.setService("factD",new FactoryD1());
-        Object interfD = ssl.getObject("factD");
-        ssl.setConstant("D",interfD);
+        Factory factD = new FactoryD1();
+        ssl.setService(factD.getClass(), factD);
 
+        Object interfD = ssl.getObject(FactoryD1.class);
+        ssl.setConstant(interfD.getClass(), interfD);
+    }/*
         ssl.setService("factC",new FactoryC1());
         Object interfC = ssl.getObject("factC");
         ssl.setConstant("C",interfC);

@@ -6,7 +6,7 @@ import Interfaces.InterfaceA;
 import Interfaces.InterfaceB;
 import Interfaces.InterfaceC;
 
-class FactoryA1	implements	Factory<InterfaceA>	{
+public class FactoryA1	implements	Factory<InterfaceA>	{
     public InterfaceA create (ServiceLocator sl) throws LocatorError {
         InterfaceB b = sl.getObject(InterfaceB.class);
         InterfaceC c = sl.getObject(InterfaceC.class);
