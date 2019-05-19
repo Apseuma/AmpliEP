@@ -1,4 +1,4 @@
-package servicelocatorTest;
+/*package servicelocatorTest;
 
 import Exceptions.LocatorError;
 import Interfaces.InterfaceC;
@@ -122,3 +122,4 @@ public class ServiceLocatorsTest {
             ssl.setService("factA",new FactoryA1());
 
         }
+*/
