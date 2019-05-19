@@ -53,7 +53,6 @@ public class CachedServiceLocatorTest {
         assertThrows(LocatorError.class, () -> {
             csl.setConstant(FactoryA1.class,new FactoryA1());
         });
-
     }
 
 
@@ -67,7 +66,6 @@ public class CachedServiceLocatorTest {
         assertThrows(LocatorError.class, () -> {
             csl.getObject(factA.getClass());    //no s'ha fet setService
         });
-
     }
 
     @Test
@@ -85,6 +83,7 @@ public class CachedServiceLocatorTest {
 
         csl.setConstant(String.class,"La factoria C em necessita!");
         csl.setService(factC.getClass(), factC);
+
         InterfaceC interfC1 = (InterfaceC) csl.getObject(factC.getClass());
         InterfaceC interfC2 = (InterfaceC) csl.getObject(factC.getClass());
         assertSame(interfC1, interfC2);
@@ -166,14 +165,12 @@ public class CachedServiceLocatorTest {
 
         });
 
-
         Factory factC = new FactoryC1();
         csl.setService(factC.getClass(),factC);
         csl.setConstant(String.class,"necessari per fer InterfaceC");
 
         InterfaceC interfC = (InterfaceC) csl.getObject(factC.getClass());
         csl.setConstant(InterfaceC.class,interfC);  //ara ja té el InterfaceC.class->*interfaceC*
-
 
         Factory factD = new FactoryD1();
         csl.setService(factD.getClass(),factD);
@@ -187,11 +184,7 @@ public class CachedServiceLocatorTest {
         InterfaceB interfB = (InterfaceB) csl.getObject(factB.getClass());
         csl.setConstant(InterfaceB.class,interfB);  //ara ja té el InterfaceB.class->*interfaceB*
 
-
         csl.getObject(factA.getClass()); //OK: perquè ja té un InterfaceB.class->*interfaceB*
         //                     i un InterfaceC.class->*interfaceC*
-
     }
-
-
 }

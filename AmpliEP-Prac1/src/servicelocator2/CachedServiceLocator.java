@@ -43,7 +43,6 @@ public class CachedServiceLocator implements ServiceLocator {
             return (T) constants.get(klass);
 
         }else if (services.containsKey(klass)){
-            //return ((Factory<T>) services.get(klass)).create(this);
             T interf = ((Factory<T>)services.get(klass)).create(this);
             created.put(klass,interf);
             return interf;
