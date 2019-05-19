@@ -36,13 +36,10 @@ public class SimpleServiceLocator implements ServiceLocator {
     public <T> T getObject(Class<T> klass) throws LocatorError {
         if (constants.containsKey(klass)) {
             return (T) constants.get(klass);
-
         }else if (services.containsKey(klass)){
             return ((Factory<T>) services.get(klass)).create(this);
-
         } else {
             throw new LocatorError("This name doesn't exist.");
         }
     }
-
 }

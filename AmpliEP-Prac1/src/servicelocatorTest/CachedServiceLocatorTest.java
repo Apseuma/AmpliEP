@@ -20,13 +20,13 @@ class CachedServiceLocatorTest{
     @Test
     void setServiceTest() throws LocatorError {
         csl.setService("service1", new FactoryB1());
+
         assertThrows(LocatorError.class, () -> {
             csl.setService("service1", new FactoryC1());
         });
 
         csl.setService("service2", new FactoryB1());
     }
-
 
     @Test
     void setConstantTest() throws LocatorError {
@@ -38,7 +38,6 @@ class CachedServiceLocatorTest{
         });
 
         csl.setConstant("constant3", 34);
-
         csl.setConstant("factory", new FactoryB1());   //ok
     }
 
@@ -55,14 +54,11 @@ class CachedServiceLocatorTest{
         });
     }
 
-
-
     @Test
     void getInexistentObject() throws LocatorError {
         assertThrows(LocatorError.class, () -> {
             csl.getObject("inventat");
         });
-
     }
 
     @Test
@@ -79,8 +75,6 @@ class CachedServiceLocatorTest{
         assertSame(interfC1, interfC2);
     }
 
-
-
     @Test
     void getObjectInterfaceDTest() throws LocatorError{
         csl.setService("interfD",new FactoryD1());
@@ -91,9 +85,7 @@ class CachedServiceLocatorTest{
 
         csl.setConstant("constD",155);
         csl.getObject("interfD"); //OK: perquè ja té un "constD"->*int*
-
     }
-
 
     @Test
     void getObjectInterfaceCTest() throws LocatorError{
@@ -105,9 +97,7 @@ class CachedServiceLocatorTest{
 
         csl.setConstant("constC","hello!!");
         csl.getObject("interfC"); //OK: perquè ja té un "constC"->*string*
-
     }
-
 
     @Test
     void getObjectInterfaceBTest() throws LocatorError{
@@ -122,11 +112,8 @@ class CachedServiceLocatorTest{
         Object interfD = csl.getObject("interfD");
 
         csl.setConstant("D",interfD); //ara ja té un "D"->*interfaceD*
-
         csl.getObject("interfB"); //OK
-
     }
-
 
     @Test
     void getObjectInterfaceATest() throws LocatorError{
@@ -146,15 +133,11 @@ class CachedServiceLocatorTest{
         Object interfB = csl.getObject("interfB");
         csl.setConstant("B",interfB); //ara ja té un "B"->*interfaceB*
 
-
         csl.setConstant("constC","heyy" );
         csl.setService("interfC",new FactoryC1());
         Object interfC = csl.getObject("interfC");
         csl.setConstant("C",interfC); //ara ja té un "C"->*interfaceC*
 
-
         csl.getObject("interfA"); // OK
-
     }
-
 }

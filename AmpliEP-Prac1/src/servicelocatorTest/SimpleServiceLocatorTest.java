@@ -26,7 +26,6 @@ class SimpleServiceLocatorTest{
         ssl.setService("service2", new FactoryB1());
     }
 
-
     @Test
     void setConstantTest() throws LocatorError {
         ssl.setConstant("constant1", 34);
@@ -37,7 +36,6 @@ class SimpleServiceLocatorTest{
         });
 
         ssl.setConstant("constant3", 34);
-
         ssl.setConstant("factory", new FactoryB1());   //ok
     }
 
@@ -75,8 +73,6 @@ class SimpleServiceLocatorTest{
         assertNotSame(interfC1, interfC2);
     }
 
-
-
     @Test
     void getObjectInterfaceDTest() throws LocatorError{
         ssl.setService("interfD",new FactoryD1());
@@ -87,9 +83,7 @@ class SimpleServiceLocatorTest{
 
         ssl.setConstant("constD",155);
         ssl.getObject("interfD"); //OK: perquè ja té un "constD"->*int*
-
     }
-
 
     @Test
     void getObjectInterfaceCTest() throws LocatorError{
@@ -101,7 +95,6 @@ class SimpleServiceLocatorTest{
 
         ssl.setConstant("constC","hello!!");
         ssl.getObject("interfC"); //OK: perquè ja té un "constC"->*string*
-
     }
 
     @Test
@@ -119,7 +112,6 @@ class SimpleServiceLocatorTest{
         ssl.setConstant("D",interfD); //ara ja té un "D"->*interfaceD*
 
         ssl.getObject("interfB"); //OK
-
     }
 
     @Test
@@ -140,15 +132,11 @@ class SimpleServiceLocatorTest{
         Object interfB = ssl.getObject("interfB");
         ssl.setConstant("B",interfB); //ara ja té un "B"->*interfaceB*
 
-
         ssl.setConstant("constC","heyy" );
         ssl.setService("interfC",new FactoryC1());
         Object interfC = ssl.getObject("interfC");
         ssl.setConstant("C",interfC); //ara ja té un "C"->*interfaceC*
 
-
         ssl.getObject("interfA"); // OK
-
     }
-
 }

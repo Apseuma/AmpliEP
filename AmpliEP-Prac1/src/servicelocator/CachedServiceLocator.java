@@ -6,8 +6,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class CachedServiceLocator implements ServiceLocator {
-
-
     private Map<String,Object> constants;
     private Map<String,Factory> services;
     private Map<String,Object> created;
@@ -51,5 +49,3 @@ public class CachedServiceLocator implements ServiceLocator {
         }
     }
 }
-
-//segur que esta classe va en aquest lloc del codi???
