@@ -1,6 +1,7 @@
 package servicelocator2Test;
 
 import Exceptions.LocatorError;
+import Interfaces.InterfaceB;
 import Interfaces.InterfaceC;
 import Interfaces.InterfaceD;
 import org.junit.jupiter.api.BeforeEach;
@@ -24,8 +25,9 @@ class SimpleServiceLocatorTest{
         Factory factD = new FactoryD1();
 
         ssl.setService(factB.getClass(), factB);
+
         assertThrows(LocatorError.class, () -> {
-            ssl.setService(factB2.getClass(), factB2);
+            ssl.setService(factB2.getClass(), factB2);  //ja hi ha un FactoryB1
         });
 
         ssl.setService(factD.getClass(), factD);
@@ -37,8 +39,6 @@ class SimpleServiceLocatorTest{
         String str = "holaaa";
         int integ = 55;
         int integ2 = 1899;
-        Factory factC = new FactoryC1();
-
 
         ssl.setConstant(String.class, str);
         ssl.setConstant(Integer.class, integ);
@@ -47,7 +47,11 @@ class SimpleServiceLocatorTest{
             ssl.setConstant(Integer.class, integ2);
         });
 
-        //ssl.setConstant(factC.getClass(),factC); pq no??
+        ssl.setConstant(FactoryA1.class,new FactoryA1());
+
+        assertThrows(LocatorError.class, () -> {
+            ssl.setConstant(FactoryA1.class,new FactoryA1());
+        });
 
     }
 
@@ -60,7 +64,7 @@ class SimpleServiceLocatorTest{
 
         Factory factA = new FactoryA1();
         assertThrows(LocatorError.class, () -> {
-            ssl.getObject(factA.getClass());
+            ssl.getObject(factA.getClass());    //no s'ha fet setService
         });
 
     }
@@ -81,62 +85,112 @@ class SimpleServiceLocatorTest{
         ssl.setConstant(String.class,"La factoria C em necessita!");
         ssl.setService(factC.getClass(), factC);
         InterfaceC interfC1 = (InterfaceC) ssl.getObject(factC.getClass());
-        InterfaceC interfC2 = (InterfaceC) ssl.getObject(FactoryC1.class);  //es la mateixa class
+        InterfaceC interfC2 = (InterfaceC) ssl.getObject(factC.getClass());
         assertNotSame(interfC1, interfC2);
     }
 
-
-    /*@Test
-    void getObjectComplexTest() throws LocatorError {
-
-        ssl.setConstant(, 34);
-        ssl.setConstant("constC", "valor de InterfaceC");
-        ssl.setService("B", new FactoryB1());
-        ssl.setService("A", new FactoryA1());
-
-        assertSame(34, ssl.getObject("constD")); //OK, pq es un int
-        assertSame("valor de InterfaceC", ssl.getObject("constC")); //OK, pq es una string
+    @Test
+    void getObjectConstantTest() throws LocatorError {
+        ssl.setConstant(String.class,"La factoria C em necessita!");
+        ssl.setConstant(Integer.class,44);
+        ssl.setConstant(Double.class,4.33);
+        ssl.setConstant(FactoryA1.class,new FactoryA1());
 
         assertThrows(LocatorError.class, () -> {
-            ssl.getObject("B"); //pq necessita un "D"->InterfaceD
+            ssl.getObject(FactoryC1.class);
         });
 
+        ssl.getObject(String.class);
+        ssl.getObject(Integer.class);
+        ssl.getObject(Double.class);
+        ssl.getObject(FactoryA1.class);
+    }
+
+    @Test
+    void getObjectInterfaceDTest() throws LocatorError {
+        Factory factD = new FactoryD1();
+        ssl.setService(factD.getClass(),factD);
+
         assertThrows(LocatorError.class, () -> {
-            ssl.getObject("A"); //pq necessita un "B"->InterfaceB
+            ssl.getObject(factD.getClass()); //pq necessita un Integer.class->*número*
         });
+
+        ssl.setConstant(Integer.class, 34);
+        ssl.getObject(factD.getClass()); //OK: ara ja té el Integer.class->*número*
+    }
+
+    @Test
+    void getObjectInterfaceCTest() throws LocatorError {
+        Factory factC = new FactoryC1();
+        ssl.setService(factC.getClass(),factC);
+
+        assertThrows(LocatorError.class, () -> {
+            ssl.getObject(factC.getClass()); //pq necessita un String.class->*string*
+        });
+
+        ssl.setConstant(String.class, "ho necessita InterfaceC");
+        ssl.getObject(factC.getClass()); //OK: ara ja té el String.class->*string*
+    }
+
+    @Test
+    void getObjectInterfaceBTest() throws LocatorError {
+        Factory factB = new FactoryB1();
+        ssl.setService(factB.getClass(),factB);
+
+        assertThrows(LocatorError.class, () -> {
+            ssl.getObject(factB.getClass()); //pq necessita un InterfaceD.class->*interfaceD*
+        });
+
+        ssl.setConstant(Integer.class, 455);
+
+        Factory factD = new FactoryD1();
+        ssl.setService(factD.getClass(),factD);
+        InterfaceD interfD = (InterfaceD) ssl.getObject(factD.getClass());
+
+        ssl.setConstant(InterfaceD.class,interfD); //ara ja té el InterfaceD.class->*interfaceD*
+
+        ssl.getObject(factB.getClass());    //OK
+        ssl.getObject(FactoryB1.class);     //aquesta i l'anteior són el mateix
     }
 
 
     @Test
-    void getObjectComplexTest2() throws LocatorError {
-        ssl.setConstant(Integer.class, 44);
-        ssl.setConstant(String.class, "necessari per fer InterfaceC");
+    void getObjectInterfaceATest() throws LocatorError {
+        Factory factA = new FactoryA1();
+        ssl.setService(factA.getClass(),factA);
+
+        assertThrows(LocatorError.class, () -> {
+            ssl.getObject(factA.getClass()); //pq necessita un InterfaceB.class->*interfaceB*
+                                            //            i un InterfaceC.class->*interfaceC*
+
+        });
+
+
+        Factory factC = new FactoryC1();
+        ssl.setService(factC.getClass(),factC);
+        ssl.setConstant(String.class,"necessari per fer InterfaceC");
+
+        InterfaceC interfC = (InterfaceC) ssl.getObject(factC.getClass());
+        ssl.setConstant(InterfaceC.class,interfC);  //ara ja té el InterfaceC.class->*interfaceC*
+
 
         Factory factD = new FactoryD1();
-        ssl.setService(factD.getClass(), factD);
+        ssl.setService(factD.getClass(),factD);
+        ssl.setConstant(Integer.class, 455);
 
-        Object interfD = ssl.getObject(FactoryD1.class);
-        ssl.setConstant(interfD.getClass(), interfD);
-    }/*
-        ssl.setService("factC",new FactoryC1());
-        Object interfC = ssl.getObject("factC");
-        ssl.setConstant("C",interfC);
+        InterfaceD interfD = (InterfaceD) ssl.getObject(factD.getClass());
+        ssl.setConstant(InterfaceD.class,interfD);
 
-        ssl.setService("factB",new FactoryB1());
-        Object interfB = ssl.getObject("factB");
-        ssl.setConstant("B",interfB);
+        Factory factB = new FactoryB1();
+        ssl.setService(factB.getClass(),factB);
+        InterfaceB interfB = (InterfaceB) ssl.getObject(factB.getClass());
+        ssl.setConstant(InterfaceB.class,interfB);  //ara ja té el InterfaceB.class->*interfaceB*
 
-        ssl.setService("factA",new FactoryA1());
 
-        /*ara, tenim:
-            SIMPLE SERVICE LOCATOR:
-            "factA"->FactoryA1();
-            "factB"->FactoryB1();
-            "factC"->FactoryC1();
-            "factD"->FactoryD1();
-
-            és a dir, disposem dels 4 tipus d'Interfícies si fem un getObject.
+        ssl.getObject(factA.getClass()); //OK: perquè ja té un InterfaceB.class->*interfaceB*
+                                    //                     i un InterfaceC.class->*interfaceC*
 
     }
-*/
+
+
 }

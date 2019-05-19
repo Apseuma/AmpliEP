@@ -44,9 +44,9 @@ public class CachedServiceLocator implements ServiceLocator {
 
         }else if (services.containsKey(klass)){
             //return ((Factory<T>) services.get(klass)).create(this);
-            T serv = services.get(klass).create(this);
-            created.put(klass,serv);
-            return serv;
+            T interf = ((Factory<T>)services.get(klass)).create(this);
+            created.put(klass,interf);
+            return interf;
         } else {
             throw new LocatorError("This name doesn't exist.");
         }
